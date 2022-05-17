@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace DBOperations
+namespace WebApi.DBOperations
 {
     public class BookStoreDbContext : DbContext 
     {
