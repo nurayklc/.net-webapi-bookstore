@@ -7,31 +7,7 @@ namespace WebApi.Controller
     [ApiController]
     [Route("[controller]s")]
     public class BookController : ControllerBase 
-    {
-        /* private static List<Book> BookList = new List<Book>(){
-            new Book {
-                Id = 1,
-                Title = "Yalnızız",
-                GenreId = 1, // Roman
-                PageCount = 250,
-                PublishDate = new DateTime(2001, 01, 12)
-            },
-            new Book {
-                Id = 2,
-                Title = "Veba Geceleri",
-                GenreId = 1, // Roman
-                PageCount = 500,
-                PublishDate = new DateTime(1990, 11, 02)
-            },
-            new Book {
-                Id = 3,
-                Title = "Yaşamanın Anlam ve Amacı",
-                GenreId = 2, // Psikolojik
-                PageCount = 354,
-                PublishDate = new DateTime(2008, 10, 05)
-            }
-        }; */
-
+    { 
         private readonly BookStoreDbContext _context;
 
         public BookController(BookStoreDbContext context)
