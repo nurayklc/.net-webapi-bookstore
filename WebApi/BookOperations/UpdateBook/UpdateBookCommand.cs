@@ -18,11 +18,9 @@ namespace WebApi.BookOperations.UpdateBook
         {
             var book = _dbcontext.Books.SingleOrDefault(x=> x.Id == id);
             if(book is null)
-                throw new InvalidOperationException("Kitap bulunmamaktadır1");
+                throw new InvalidOperationException("Güncellenecek Kitap Bulunamadı!");
             
             book.GenreId = Model.GenreId != default ? Model.GenreId : book.GenreId;
-            book.PageCount = Model.PageCount != default ? Model.PageCount : book.PageCount;
-            book.PublishDate = Model.PublishDate != default ? Model.PublishDate : book.PublishDate;
             book.Title = Model.Title != default ? Model.Title : book.Title;
             _dbcontext.SaveChanges();
         }
@@ -32,7 +30,5 @@ namespace WebApi.BookOperations.UpdateBook
     {
         public string Title { get; set; }
         public int GenreId { get; set; }
-        public int PageCount { get; set; }
-        public DateTime PublishDate { get; set; }
     }
 }
