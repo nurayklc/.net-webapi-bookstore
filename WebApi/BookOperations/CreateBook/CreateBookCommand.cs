@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using AutoMapper;
 using WebApi.DBOperations;
 using WebApi.Common;
 
@@ -23,11 +24,11 @@ namespace WebApi.BookOperations.CreateBook
             if(book is not null)
                 throw new InvalidOperationException("Kitap zaten mevcut!");
             
-            book = new Book();
-            book.Title = Model.Title;
+            book =_mapper.Map<Book>(Model);
+            /* book.Title = Model.Title;
             book.GenreId = Model.GenreId;
             book.PageCount = Model.PageCount;
-            book.PublishDate = Model.PublishDate;
+            book.PublishDate = Model.PublishDate; */
             
             _dbcontext.Books.Add(book);
             _dbcontext.SaveChanges();
