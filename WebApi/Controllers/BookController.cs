@@ -90,9 +90,10 @@ namespace WebApi.Controller
            try
            {
                command.Model = updateBook;
+               command.BookId = id;
                UpdateBookCommandValidator validator = new UpdateBookCommandValidator();
                validator.ValidateAndThrow(command);
-               command.Handle(id);
+               command.Handle();
            }
            catch (Exception ex)
            {
