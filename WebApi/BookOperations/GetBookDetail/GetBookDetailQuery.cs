@@ -10,15 +10,16 @@ namespace WebApi.BookOperations.GetBookDetail
     {
         private readonly BookStoreDbContext _dbcontext;
         private readonly IMapper _mapper;
+        public int BookId { get; set; }
         public GetBookDetailQuery(BookStoreDbContext dbcontext, IMapper mapper)
         {
             _dbcontext = dbcontext;
             _mapper = mapper;
         }
 
-        public BookDetailViewModel Handle(int id)
+        public BookDetailViewModel Handle()
         {
-            var book = _dbcontext.Books.Where(book => book.Id == id).SingleOrDefault();
+            var book = _dbcontext.Books.Where(book => book.Id == BookId).SingleOrDefault();
             if(book is null)
                 throw new InvalidOperationException("Kitap bulunmamaktadır!");
             
