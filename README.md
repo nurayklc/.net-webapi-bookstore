@@ -2,8 +2,11 @@
  - An API is designed in this repository, where CRUD(Create, Read, Update,Delete) operations are made.
 ---
 ## Used Techs
-- .Net
-- MVC 
+- .Net 6 WebAPI
+- Fluent Validation
+- AutoMapper
+- Entity Framework Core
+- Dependency Injection
 - Swagger
 
 ## Run Project
