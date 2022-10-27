@@ -1,6 +1,8 @@
+using System.Threading;
 using Microsoft.EntityFrameworkCore;
 using WebApi.DBOperations;
 using System.Reflection;
+using WebApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +30,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCustomExceptionMiddle();
 
 app.UseHttpsRedirection();
 
