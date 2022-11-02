@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApi {
+namespace WebApi.Entity {
     public class Book
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
