@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using AutoMapper;
 using FluentValidation;
 using WebApi.DBOperations;
-using WebApi.BookOperations.GetBooks;
-using WebApi.BookOperations.CreateBook;
-using WebApi.BookOperations.GetBookDetail;
-using WebApi.BookOperations.UpdateBook;
-using WebApi.BookOperations.DeleteBook;
+using WebApi.Application.BookOperations.GetBooks;
+using WebApi.Application.BookOperations.CreateBook;
+using WebApi.Application.BookOperations.GetBookDetail;
+using WebApi.Application.BookOperations.UpdateBook;
+using WebApi.Application.BookOperations.DeleteBook;
 
-namespace WebApi.Controller
+namespace WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]s")]
