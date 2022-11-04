@@ -1,5 +1,7 @@
+using System.Security.AccessControl;
 using System;
-using WebApi.DBOperations
+using WebApi.DBOperations;
+using System.Linq;
 
 namespace WebApi.Application.GenreOperations.Commands.CreateGenre
 {
