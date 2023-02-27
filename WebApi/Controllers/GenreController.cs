@@ -35,6 +35,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
+        [Route("GetGenreDetails")]
         public IActionResult GetGenreDetail(int id)
         {
             GetGenreDetailQuery query = new GetGenreDetailQuery(_context, _mapper);

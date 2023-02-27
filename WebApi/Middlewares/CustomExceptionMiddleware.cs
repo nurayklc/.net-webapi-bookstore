@@ -1,6 +1,5 @@
 using System.Xml;
 using System.Net;
-using Internal;
 using System.Diagnostics;
 using System;
 using Microsoft.AspNetCore.Http;
@@ -51,7 +50,7 @@ namespace WebApi.Middlewares
 
             _loggerService.Write(message);
 
-            var result = JsonConvert.SerializeObject(new {error = ex.Message}, Formatting.Genre.IsActive);
+            var result = JsonConvert.SerializeObject(new {error = ex.Message}, formatting:Newtonsoft.Json.Formatting.None);
             return context.Response.WriteAsync(result);
         }
 

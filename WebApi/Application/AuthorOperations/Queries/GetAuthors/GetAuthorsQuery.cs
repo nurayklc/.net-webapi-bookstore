@@ -20,7 +20,7 @@ namespace WebApi.Application.AuthorOperations.Queries.GetAuthors
 
         public List<AuthorsViewModel> Handle()
         {
-            var authorList = _dbContext.Authors.Include(x => x.Books).OrderBy(x => x.Id).ToList();
+            var authorList = _dbContext.Authors.OrderBy(x => x.Id).ToList();
             List<AuthorsViewModel> vm = _mapper.Map<List<AuthorsViewModel>>(authorList);
             return vm;
         }
@@ -31,6 +31,5 @@ namespace WebApi.Application.AuthorOperations.Queries.GetAuthors
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public IEnumerable<Book> Books { get; set; }
     }
 }

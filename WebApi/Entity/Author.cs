@@ -11,6 +11,5 @@ namespace WebApi.Entity
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public IEnumerable<Book> Books { get; set; }
     }
 }

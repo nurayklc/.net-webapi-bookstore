@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-
+using WebApi.Entity;
 
 namespace WebApi.DBOperations 
 {
@@ -55,24 +55,27 @@ namespace WebApi.DBOperations
                     AuthorId = 3
                 });
 
-                
+
                 context.Authors.AddRange(
-                    new Author {
+                    new Author
+                    {
                         Name = "Peyami",
                         Surname = "Safa",
                         DateOfBirth = new DateTime(1970, 01, 12)
                     },
-                    new Author {
+                    new Author
+                    {
                         Name = "Erich",
                         Surname = "From",
                         DateOfBirth = new DateTime(1980, 01, 12)
                     },
-                    new Author {
+                    new Author
+                    {
                         Name = "Orhan",
                         Surname = "Pamuk",
                         DateOfBirth = new DateTime(1950, 01, 12)
                     }
-                );
+                ); ; ;
 
                 context.SaveChanges();
             }

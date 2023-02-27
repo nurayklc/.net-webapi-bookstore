@@ -3,7 +3,7 @@ using System.Reflection.Metadata;
 using WebApi.DBOperations;
 using WebApi.Entity;
 
-namespace WebApi.Application.AuthorOperations.Queries.GetBookDetail
+namespace WebApi.Application.AuthorOperations.Queries
 {
     public class GetAuthorDetailQuery
     {
@@ -19,7 +19,7 @@ namespace WebApi.Application.AuthorOperations.Queries.GetBookDetail
 
         public AuthorDetailViewModel Handle()
         {
-            var author = _dbContext.Authors.Where(x => x.Id ==AuthorId).ToList();
+            var author = _dbContext.Authors.Where(x => x.Id == AuthorId).FirstOrDefault();
             var authorMap = _mapper.Map<AuthorDetailViewModel>(author);
             return authorMap;
         }
@@ -30,6 +30,5 @@ namespace WebApi.Application.AuthorOperations.Queries.GetBookDetail
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public IEnumerable<Book> Books { get; set; }
     }
 }

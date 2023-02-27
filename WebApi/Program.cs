@@ -12,8 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BookStoreDbContext>(opt=>opt.UseInMemoryDatabase(databaseName: "BookStoreDB"));
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly()); 
 
-buidlder.Services.AddSingleton<ILoggerService, ConsoleLogger>();
-buidlder.Services.AddSingleton<ILoggerService, DBLogger>();
+builder.Services.AddSingleton<ILoggerService, ConsoleLogger>();
+builder.Services.AddSingleton<ILoggerService, DBLogger>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

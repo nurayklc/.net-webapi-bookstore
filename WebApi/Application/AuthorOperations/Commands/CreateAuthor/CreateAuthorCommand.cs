@@ -2,6 +2,8 @@ using System.Security.AccessControl;
 using System;
 using WebApi.DBOperations;
 using System.Linq;
+using WebApi.Entity;
+using AutoMapper;
 
 namespace WebApi.Application.AuthorOperations.Commands.CreateAuthor
 {
@@ -9,10 +11,11 @@ namespace WebApi.Application.AuthorOperations.Commands.CreateAuthor
     {
         public CreateAuthorModel Model { get; set; }
         private readonly BookStoreDbContext _context;
-
-        public CreateAuthorCommand(BookStoreDbContext context)
+        private readonly IMapper _mapper;
+        public CreateAuthorCommand(BookStoreDbContext context, IMapper mapper)
         {
-            _context = context;   
+            _context = context;
+            _mapper = mapper;
         }
 
         public void Handle()
@@ -21,10 +24,7 @@ namespace WebApi.Application.AuthorOperations.Commands.CreateAuthor
             if(author is not null)
                 throw new InvalidOperationException("Yazar zaten mevcut.");
 
-            author = new Author();
-            author.Name = Model.Name;
-            author.Surname = Model.Surname;
-            author.DateOfBirth = Model.DateOfBirth;
+            author = _mapper.Map<Author>(Model);
 
             _context.Authors.Add(author);
             _context.SaveChanges();

@@ -10,7 +10,7 @@ namespace WebApi.Application.GenreOperations.Queries.GetGenreDetail
     {
         public GetGenreDetailQueryValidator()
         {
-            RuleFor(query => query.GenreId).GreaterThen(0);
+            RuleFor(query => query.GenreId).GreaterThan(0);
         }
     }
 }

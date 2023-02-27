@@ -1,5 +1,6 @@
 using AutoMapper;
 using WebApi.Application.AuthorOperations.Commands.CreateAuthor;
+using WebApi.Application.AuthorOperations.Queries;
 using WebApi.Application.AuthorOperations.Queries.GetAuthors;
 using WebApi.Application.AuthorOperations.Queries.GetBookDetail;
 using WebApi.Application.GenreOperations.Queries.GetGenreDetail;

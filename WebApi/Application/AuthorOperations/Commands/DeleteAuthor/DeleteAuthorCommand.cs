@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using WebApi.DBOperations;
 using WebApi.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.AuthorOperations.DeleteAuthor
 {
@@ -17,11 +18,12 @@ namespace WebApi.AuthorOperations.DeleteAuthor
         public void Handle()
         {
             var author = _dbcontext.Authors.SingleOrDefault(x => x.Id == AuthorId);
-            if(author is null)
+            var authorBooks = _dbcontext.Books.SingleOrDefault(a => a.AuthorId == AuthorId);
+            if (author is null)
                 throw new InvalidOperationException("Yazar bulunmamaktadır!");
-            if(author.Books.Any(x => x.Genre.IsActive == true))
+            if (authorBooks is not null)
                 throw new InvalidOperationException("Yazarın kitabı yayındadır, silemezsiniz!");
-            
+
             _dbcontext.Authors.Remove(author);
             _dbcontext.SaveChanges();
         }

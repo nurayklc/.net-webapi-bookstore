@@ -4,6 +4,8 @@ using AutoMapper;
 using WebApi.DBOperations;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Common;
+using System.Linq;
+using WebApi.Entity;
 
 namespace WebApi.BookOperations.GetBooks
 {

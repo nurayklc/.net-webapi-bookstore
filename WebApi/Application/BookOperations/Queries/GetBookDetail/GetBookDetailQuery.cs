@@ -20,7 +20,7 @@ namespace WebApi.BookOperations.GetBookDetail
 
         public BookDetailViewModel Handle()
         {
-            var book = _dbcontext.Books.Include(x => x.Genre).Where(book => book.Id == BookId).SingleOrDefault();
+            var book = _dbcontext.Books.Include(x => x.Genre).Include(x => x.Author).Where(book => book.Id == BookId).SingleOrDefault();
             if(book is null)
                 throw new InvalidOperationException("Kitap bulunmamaktadır!");
             

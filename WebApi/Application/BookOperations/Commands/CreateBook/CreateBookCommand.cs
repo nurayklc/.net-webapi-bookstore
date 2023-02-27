@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AutoMapper;
 using WebApi.DBOperations;
 using WebApi.Common;
+using WebApi.Entity;
 
 namespace WebApi.BookOperations.CreateBook
 {
