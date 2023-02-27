@@ -4,7 +4,12 @@ using System.Collections.Generic;
 using AutoMapper;
 using FluentValidation;
 using WebApi.DBOperations;
-using WebApia.Application.GenreOperations;
+using WebApi.Application.GenreOperations;
+using WebApi.Application.GenreOperations.Commands.UpdateGenre;
+using WebApi.Application.GenreOperations.Commands.CreateGenre;
+using WebApi.Application.GenreOperations.Commands.DeleteGenre;
+using WebApi.Application.GenreOperations.Queries.GetGenreDetail;
+using WebApi.Application.GenreOperations.Queries.GetGenresQuery;
 
 namespace WebApi.Controllers
 {
@@ -22,7 +27,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public IACtionResult GetGenres()
+        public IActionResult GetGenres()
         {
             GetGenresQuery query = new GetGenresQuery(_context, _mapper);
             var obj = query.Handle();
@@ -74,7 +79,7 @@ namespace WebApi.Controllers
             DeleteGenreCommand command = new DeleteGenreCommand(_context);
             command.GenreId = id;
             DeleteGenreCommandValidator validator = new DeleteGenreCommandValidator();
-            validator.ValidateAndThrow();
+            validator.ValidateAndThrow(command);
             
             command.Handle();
             return Ok();

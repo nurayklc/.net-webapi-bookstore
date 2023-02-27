@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using AutoMapper;
 using FluentValidation;
 using WebApi.DBOperations;
-using WebApi.Application.BookOperations.GetBooks;
-using WebApi.Application.BookOperations.CreateBook;
-using WebApi.Application.BookOperations.GetBookDetail;
-using WebApi.Application.BookOperations.UpdateBook;
-using WebApi.Application.BookOperations.DeleteBook;
+using WebApi.BookOperations.UpdateBook;
+using WebApi.BookOperations.GetBooks;
+using WebApi.BookOperations.GetBookDetail;
+using WebApi.BookOperations.CreateBook;
+using WebApi.BookOperations.DeleteBook;
 
 namespace WebApi.Controllers
 {

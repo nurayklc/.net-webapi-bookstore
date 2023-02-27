@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using WebApi.DBOperations;
 using FluentValidation;
 using System.Linq;
+using WebApi.AuthorOperations.DeleteAuthor;
 
 namespace WebApi.Application.AuthorOperations.Commands.DeleteAuthor
 {
@@ -10,9 +11,7 @@ namespace WebApi.Application.AuthorOperations.Commands.DeleteAuthor
     {
         public DeleteAuthorCommandValidator()
         {
-            RuleFor(command => command.Model.Name).NotEmpty().MinimumLength(3);
-            RuleFor(command => command.Model.Surname).NotEmpty().MinimumLength(3);
-            RuleFor(command => command.Model.DateOfBirth).NotEmpty();
+            RuleFor(command => command.AuthorId).NotNull().NotEmpty();
         }
     }
 }

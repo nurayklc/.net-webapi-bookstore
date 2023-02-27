@@ -13,5 +13,6 @@ namespace WebApi.Application.GenreOperations.Commands.DeleteGenre
         {
             RuleFor(command => command.GenreId).NotEmpty().GreaterThan(0);
         }
+
     }
 }

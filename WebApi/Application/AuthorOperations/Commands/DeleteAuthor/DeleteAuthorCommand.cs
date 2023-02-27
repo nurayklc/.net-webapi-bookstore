@@ -19,7 +19,7 @@ namespace WebApi.AuthorOperations.DeleteAuthor
             var author = _dbcontext.Authors.SingleOrDefault(x => x.Id == AuthorId);
             if(author is null)
                 throw new InvalidOperationException("Yazar bulunmamaktadır!");
-            if(author.Books.Any(x => x.IsActive == true))
+            if(author.Books.Any(x => x.Genre.IsActive == true))
                 throw new InvalidOperationException("Yazarın kitabı yayındadır, silemezsiniz!");
             
             _dbcontext.Authors.Remove(author);

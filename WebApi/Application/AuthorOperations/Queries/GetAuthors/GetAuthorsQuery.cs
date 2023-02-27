@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+
 using AutoMapper;
 using WebApi.DBOperations;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Common;
+using WebApi.Entity;
 
 namespace WebApi.Application.AuthorOperations.Queries.GetAuthors
 {
@@ -18,7 +18,7 @@ namespace WebApi.Application.AuthorOperations.Queries.GetAuthors
             _mapper = mapper;
         }
 
-        public void Handle()
+        public List<AuthorsViewModel> Handle()
         {
             var authorList = _dbContext.Authors.Include(x => x.Books).OrderBy(x => x.Id).ToList();
             List<AuthorsViewModel> vm = _mapper.Map<List<AuthorsViewModel>>(authorList);

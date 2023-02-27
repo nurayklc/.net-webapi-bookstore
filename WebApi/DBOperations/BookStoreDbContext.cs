@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using WebApi.Entity.Book;
-using WebApi.Entity.Genre;
-using WebApi.Entity.Author;
+using WebApi.Entity;
 
 namespace WebApi.DBOperations
 {

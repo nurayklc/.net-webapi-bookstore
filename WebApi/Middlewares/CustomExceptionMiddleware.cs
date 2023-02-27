@@ -32,7 +32,7 @@ namespace WebApi.Middlewares
                 watch.Stop();
                 var resMessage = "[Response] HTTP " + context.Request.Method + " - " + context.Request.Path 
                                     +  " responded " + context.Response.StatusCode
-                                    + "  in " + watch.Elapse.TotalMilliseconds + " ms ";
+                                    + "  in " + watch.Elapsed.TotalMilliseconds + " ms ";
                 _loggerService.Write(message);
             }
             catch (Exception ex)
@@ -51,7 +51,7 @@ namespace WebApi.Middlewares
 
             _loggerService.Write(message);
 
-            var result = JsonConvert.SerializeObject(new {error = ex.Message}, Formatting.None);
+            var result = JsonConvert.SerializeObject(new {error = ex.Message}, Formatting.Genre.IsActive);
             return context.Response.WriteAsync(result);
         }
 

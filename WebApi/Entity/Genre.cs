@@ -6,6 +6,6 @@ namespace WebApi.Entity {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-        public int IsActive { get; set; } = true;
+        public bool IsActive { get; set; } = true;
     }
 }

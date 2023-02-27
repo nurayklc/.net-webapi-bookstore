@@ -1,4 +1,8 @@
+using AutoMapper;
 using System.Reflection.Metadata;
+using WebApi.DBOperations;
+using WebApi.Entity;
+
 namespace WebApi.Application.AuthorOperations.Queries.GetBookDetail
 {
     public class GetAuthorDetailQuery
@@ -16,9 +20,8 @@ namespace WebApi.Application.AuthorOperations.Queries.GetBookDetail
         public AuthorDetailViewModel Handle()
         {
             var author = _dbContext.Authors.Where(x => x.Id ==AuthorId).ToList();
-            if(author is null)
-                return new InvalidOperationException("Yazar Bulunamadı!");
-            return authorMap = _mapper.Map<AuthorDetailViewModel>(author);
+            var authorMap = _mapper.Map<AuthorDetailViewModel>(author);
+            return authorMap;
         }
     }
 

@@ -20,10 +20,10 @@ namespace WebApi.Application.GenreOperations.Queries.GetGenreDetail
 
         public GenreDetailViewModel Handle()
         {
-            var genre = _context.Genre.SingleOrDefault(x => x.IsActive && x.Id == GenreId);
+            var genre = _context.Genres.SingleOrDefault(x => x.IsActive == true && x.Id == GenreId);
             if(genre is null)
                 throw new InvalidOperationException("Kitap bulunamadı");
-            return returnObj = _mapper.Map<GenreDetailViewModel>(genre);
+            return  _mapper.Map<GenreDetailViewModel>(genre);
             
         }
     }
