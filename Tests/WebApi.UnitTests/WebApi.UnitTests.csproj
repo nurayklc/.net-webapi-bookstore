@@ -29,9 +29,4 @@
     <ProjectReference Include="..\..\WebApi\WebApi.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Application\BookOperations\Queries\GetBookDetailQuery\" />
-    <Folder Include="Application\BookOperations\Queries\GetBooksQuery\" />
-  </ItemGroup>
-
 </Project>
