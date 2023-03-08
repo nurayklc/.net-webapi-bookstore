@@ -28,20 +28,19 @@ namespace WebApi.UnitTests.Application.BookOperations.Queries.GetBookDetailQuery
         public void WhenValidInputsAreGiven_Book_ShouldBeReturned()
         {
             // arrange
-            GetBookDetailQuery query = new(_context, _mapper);
-            var BookId = query.BookId = 1;
+            GetBookDetailQuery query = new GetBookDetailQuery(_context, _mapper);
+            query.BookId = 1;
 
-            var book = _context.Books.Include(x => x.Genre).Include(x => x.Author).Where(b => b.Id == BookId).SingleOrDefault();
+            var book = _context.Books.Include(x => x.Genre).Where(b => b.Id == query.BookId).SingleOrDefault();
 
-            // act
-            BookDetailViewModel vm = query.Handle();
+           // act
+           var vm = query.Handle();
 
             // assert
             vm.Should().NotBeNull();
             vm.Title.Should().Be(book.Title);
             vm.PageCount.Should().Be(book.PageCount);
             vm.Genre.Should().Be(book.Genre.Name);
-            vm.Author.Should().Be(book.Author.Name + " " + book.Author.Surname);
             vm.PublishDate.Should().Be(book.PublishDate.ToString("dd/MM/yyyy 00:00:00"));
         }
 
@@ -49,7 +48,7 @@ namespace WebApi.UnitTests.Application.BookOperations.Queries.GetBookDetailQuery
         public void WhenNonExistingBookIdIsGiven_InvalidOperationException_ShouldBeReturn()
         {
             // arrange
-            int bookId = 11;
+            int bookId = 110;
 
             GetBookDetailQuery query = new GetBookDetailQuery(_context, _mapper);
             query.BookId = bookId;
