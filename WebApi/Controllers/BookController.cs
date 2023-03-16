@@ -8,9 +8,11 @@ using WebApi.BookOperations.GetBooks;
 using WebApi.BookOperations.GetBookDetail;
 using WebApi.BookOperations.CreateBook;
 using WebApi.BookOperations.DeleteBook;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]s")]
     public class BookController : ControllerBase 
@@ -25,7 +27,8 @@ namespace WebApi.Controllers
 
         // Get all books
         [HttpGet]
-        public IActionResult GetBooks(){
+        public IActionResult GetBooks()
+        {
             GetBooksQuery query = new GetBooksQuery(_context,_mapper);
             var result = query.Handle();
             return Ok(result);
