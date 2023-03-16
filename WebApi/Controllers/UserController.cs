@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.UserOperations.Commands.CreateToken;
 using WebApi.Application.UserOperations.Commands.CreateUser;
+using WebApi.Application.UserOperations.Commands.RefreshToken;
 using WebApi.DBOperations;
 using WebApi.TokenOperations.Models;
 
@@ -38,6 +39,15 @@ namespace WebApi.Controllers
             command.Model = login;
             var token = command.Handle();
             return token;
+        }
+
+        [HttpGet("refreshToken")]
+        public ActionResult<Token> RefreshToken([FromQuery] string token)
+        {
+            RefreshTokenCommand command = new RefreshTokenCommand(_context,_configuration);
+            command.Refresh = token;
+            var resultToken = command.Handle();
+            return resultToken;
         }
     }
 }

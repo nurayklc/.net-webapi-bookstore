@@ -27,6 +27,7 @@ namespace WebApi.Controllers
 
         // Get all books
         [HttpGet]
+        [Route("GetBooks")]
         public IActionResult GetBooks()
         {
             GetBooksQuery query = new GetBooksQuery(_context,_mapper);
