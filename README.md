@@ -10,7 +10,7 @@
 - Bearer Token
 - Swagger
 
-# Create Token
+## Create Token
 - First, create user : https://localhost:7151/api/user
 - Create access token for user :  https://localhost:7151/api/user/connect/token
 - Create refresh token for user : https://localhost:7151/api/user/refreshToken?token={refreshToken}
