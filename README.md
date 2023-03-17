@@ -7,6 +7,7 @@
 - AutoMapper
 - Entity Framework Core
 - Dependency Injection
+- Bearer Token
 - Swagger
 
 ## Run Project
