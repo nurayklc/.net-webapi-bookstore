@@ -23,7 +23,7 @@ namespace WebApi.TokenOperations
             tokenModel.Expiration = DateTime.Now.AddMinutes(15);
             JwtSecurityToken securityToken = new JwtSecurityToken(
                 issuer: Configuration["Token:Issuer"],
-                audience: Configuration["Token:Auidence"],
+                audience: Configuration["Token:Audience"],
                 expires: tokenModel.Expiration,
                 notBefore: DateTime.Now,
                 signingCredentials: credentials
